@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+/* Font + tiny helpers */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+html,body{font-family:"Poppins",ui-sans-serif,system-ui,sans-serif}
+
+/* simple 2-line clamp (since we're not using a plugin) */
+.line-clamp-2{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* Custom scrollbar styling for collections */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Smooth scrollbar for collections */
+.collections-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #7A5C49 transparent;
+}
+.collections-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.collections-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.collections-scroll::-webkit-scrollbar-thumb {
+  background: #7A5C49;
+  border-radius: 3px;
+}
+.collections-scroll::-webkit-scrollbar-thumb:hover {
+  background: #5A4A3A;
+}
+
+/* ✅ SIMPLE: Clean Banner Animations */
+@keyframes bannerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes progressBar {
+  from { 
+    width: 0%; 
+    background: linear-gradient(90deg, #7A5C49, #F6EFE7, #7A5C49);
+  }
+  to { 
+    width: 100%; 
+    background: linear-gradient(90deg, #7A5C49, #F6EFE7, #7A5C49);
+  }
+}
+
+@keyframes cornerGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-100%) rotate(12deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(12deg);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(122, 92, 73, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ✅ SIMPLE: Clean Product Image Zoom */
+@keyframes simpleZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes imageZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+/* Banner specific classes */
+.banner-slide-enter {
+  animation: bannerSlideIn 1.2s ease-out forwards;
+}
+
+.banner-progress {
+  animation: progressBar 6s linear infinite;
+}
+
+.banner-corner-glow {
+  animation: cornerGlow 4s ease-in-out infinite;
+}
+
+.banner-button-shine {
+  animation: buttonShine 3s ease-in-out infinite;
+}
+
+.banner-text-glow {
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.banner-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.banner-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ✅ SIMPLE: Product Image Zoom Classes */
+.simple-zoom {
+  animation: simpleZoom 0.3s ease-out forwards;
+}
+
+.image-zoom {
+  animation: imageZoom 0.3s ease-out forwards;
+}
+
+/* Enhanced elegant hover effects */
+.banner-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(122, 92, 73, 0.2);
+}
+
+.banner-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.banner-button:hover::before {
+  left: 100%;
+}
+
+.banner-button:hover {
+  box-shadow: 0 20px 40px rgba(122, 92, 73, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ✅ SIMPLE: Product Image Container */
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-zoomed {
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.product-image-content-zoomed {
+  transform: scale(1.5);
+}
+
+/* Enhanced glass morphism effect */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-morphism:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced elegant text shadow */
+.text-elegant-shadow {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced smooth transitions */
+.smooth-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced elegant gradient borders */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(45deg, #7A5C49, #F6EFE7, #7A5C49);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Professional image overlay effects */
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(122, 92, 73, 0.1) 0%, rgba(246, 239, 231, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.image-overlay:hover::before {
+  opacity: 1;
+}
+
+/* Professional loading states */
+.professional-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.focus-elegant:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(122, 92, 73, 0.3);
+  border-radius: 8px;
+}
+
+/* Professional typography */
+.professional-text {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ✅ SIMPLE: Responsive Design */
+@media (max-width: 768px) {
+  .product-image-container:hover {
+    transform: none;
+  }
+  
+  .product-image-zoomed {
+    transform: scale(1.05);
+  }
+  
+  .product-image-content-zoomed {
+    transform: scale(1.2);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .text-elegant-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* ✅ CONFETTI ANIMATIONS - Birthday Bomb Effect */
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(-100vh) translateX(0) rotate(0deg) scale(1);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-80vh) translateX(var(--drift, 0px)) rotate(36deg) scale(1.1);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translateY(-60vh) translateX(calc(var(--drift, 0px) * 2)) rotate(90deg) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-30vh) translateX(calc(var(--drift, 0px) * 3)) rotate(180deg) scale(0.9);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(0vh) translateX(calc(var(--drift, 0px) * 4)) rotate(270deg) scale(0.8);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(20vh) translateX(calc(var(--drift, 0px) * 5)) rotate(360deg) scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(40vh) translateX(calc(var(--drift, 0px) * 6)) rotate(450deg) scale(0.3);
+  }
+}
+
+@keyframes confetti-float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(0) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(270deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position: 0% 50%; 
+  }
+}
+
+.animate-confetti-fall {
+  animation: confetti-fall ease-out forwards;
+}
+
+.animate-confetti-float {
+  animation: confetti-float 2s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in ease-out forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .banner-corner-glow,
+  .banner-button-shine,
+  .banner-progress,
+  .banner-text-glow,
+  .banner-float,
+  .banner-pulse,
+  .simple-zoom,
+  .image-zoom,
+  .animate-confetti-fall,
+  .animate-confetti-float,
+  .animate-bounce-in {
+    animation: none;
+  }
+  
+  .smooth-transition {
+    transition: none;
+  }
+  
+  .product-image-container:hover {
+    transform: none;
+  }
+}
