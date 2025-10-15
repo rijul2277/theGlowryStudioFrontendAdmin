@@ -78,7 +78,7 @@ if (response.data.paymentSessionId) {
 
 ### Frontend (.env.local)
 ```bash
-NEXT_PUBLIC_API_URL=https://theglowrystudiobackend-2.onrender.com/api/v1
+NEXT_PUBLIC_API_URL=http://localhost:4000/api/v1
 NEXT_PUBLIC_CASHFREE_APP_ID=your_cashfree_app_id
 NEXT_PUBLIC_CASHFREE_ENVIRONMENT=sandbox
 NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
@@ -91,7 +91,7 @@ NEXT_PUBLIC_FAILURE_URL=http://localhost:3000/order/failure
 CASHFREE_APP_ID=your_cashfree_app_id
 CASHFREE_SECRET_KEY=your_cashfree_secret_key
 CASHFREE_ENVIRONMENT=sandbox
-BACKEND_URL=https://theglowrystudiobackend-2.onrender.com
+BACKEND_URL=http://localhost:4000
 FRONTEND_SUCCESS_URL=http://localhost:3000/order/success
 FRONTEND_FAILURE_URL=http://localhost:3000/order/failure
 ```

@@ -10,7 +10,7 @@ import {
 } from '../Reducers/authReducer';
 import { clearEmailOtpSession } from '../../lib/email-session-handler';
 
-const API_URL =  'https://theglowrystudiobackend-2.onrender.com/api/v1';
+const API_URL =  'http://localhost:4000/api/v1';
 
 // ✅ REMOVED: Duplicate axios instance and interceptors
 // Now using the centralized 'api' instance from lib/api.js to prevent duplicate token refresh calls

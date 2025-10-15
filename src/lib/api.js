@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://theglowrystudiobackend-2.onrender.com/api/v1" || "",
+  baseURL: "http://localhost:4000/api/v1" || "",
   timeout: 15000,
   withCredentials: true, // set true for cart functionality
 });
