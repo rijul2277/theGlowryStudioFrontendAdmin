@@ -6,23 +6,15 @@ import { getEmailOtpSession } from './email-session-handler';
 
 const API_URL = 'http://localhost:4000';
 
-// Get the base URL for the current environment
-const getBaseUrl = () => {
-  if (process.env.NODE_ENV === 'production') {
-    return process.env.NEXTAUTH_URL || 'https://theglowrystudiofrontendadmin.onrender.com';
-  }
-  return process.env.NEXTAUTH_URL || 'http://localhost:3000';
-};
-
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID ,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ,
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ,
     }),
   ],
   events: {
@@ -151,8 +143,6 @@ export const authOptions = {
     strategy: 'jwt',
   },
   debug: process.env.NODE_ENV === 'development',
-  // Ensure proper URL handling for OAuth
-  url: getBaseUrl(),
 };
 
 export default NextAuth(authOptions);
