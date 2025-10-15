@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL =  'https://theglowrystudiofrontendadmin.onrender.com/api/v1';
+const API_URL =  'https://theglowrystudiobackend-2.onrender.com/api/v1';
 
 export async function handleOAuthCallback(userData) {
   console.log('Handling OAuth callback for:', userData);

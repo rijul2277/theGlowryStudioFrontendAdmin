@@ -18,13 +18,13 @@ Go to [Google Cloud Console](https://console.cloud.google.com/):
 **Authorized JavaScript origins:**
 ```
 http://localhost:3000
-https://theglowrystudiofrontendadmin.onrender.com
+https://theglowrystudiobackend-2.onrender.com
 ```
 
 **Authorized redirect URIs:**
 ```
 http://localhost:3000/api/auth/callback/google
-https://theglowrystudiofrontendadmin.onrender.com/api/auth/callback/google
+https://theglowrystudiobackend-2.onrender.com/api/auth/callback/google
 ```
 
 ### 2. Environment Configuration
@@ -53,8 +53,8 @@ NEXT_PUBLIC_API_URL=http://localhost:4000
 For production deployment, update your environment variables:
 
 ```env
-NEXTAUTH_URL=https://theglowrystudiofrontendadmin.onrender.com
-NEXT_PUBLIC_API_URL=https://theglowrystudiofrontendadmin.onrender.com/api/v1
+NEXTAUTH_URL=https://theglowrystudiobackend-2.onrender.com
+NEXT_PUBLIC_API_URL=https://theglowrystudiobackend-2.onrender.com/api/v1
 ```
 
 ### 4. Generate NEXTAUTH_SECRET

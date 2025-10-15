@@ -7,7 +7,7 @@ import { getEmailOtpSession } from './email-session-handler';
 // Dynamic API URL based on environment
 const getApiUrl = () => {
   if (process.env.NODE_ENV === 'production') {
-    return 'https://theglowrystudiofrontendadmin.onrender.com';
+    return 'https://theglowrystudiobackend-2.onrender.com';
   }
   return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 };
