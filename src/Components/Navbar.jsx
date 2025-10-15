@@ -317,17 +317,17 @@ export default function Navbar({ cartCounts = 3 }) {
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 relative">
         {/* TOP ROW — mobile/tablet: hamburger | logo | icons  — desktop: links | logo | icons */}
-        <div className="grid grid-cols-3 items-center py-4 sm:py-5 md:py-6 lg:py-7">
+        <div className="grid grid-cols-3 items-center py-3 sm:py-4 md:py-5 lg:py-6">
           {/* LEFT: mobile hamburger / desktop nav */}
           <div className="flex items-center">
             {/* Hamburger (mobile/tablet) */}
             <button
               aria-label="Open menu"
-              className="lg:hidden p-2 -ml-1 sm:-ml-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
+              className="lg:hidden p-1.5 -ml-1 transition-colors duration-200 hover:bg-gray-50 rounded-md"
               onClick={handleMobileMenuToggle}
               style={{ color: BROWN }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="sm:w-6 sm:h-6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5">
                 <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
               </svg>
             </button>
@@ -475,16 +475,20 @@ export default function Navbar({ cartCounts = 3 }) {
                       </div>
 
                       {/* Footer */}
-                      <div className="px-6 py-4 border-t bg-gray-50/50 rounded-b-2xl" style={{ borderColor: `${BROWN}10` }}>
+                      <div className="px-6 py-4 border-t bg-gradient-to-r from-gray-50 to-gray-100/50 rounded-b-2xl" style={{ borderColor: `${BROWN}10` }}>
                         <div className="text-center">
                           <Link 
                             href="/collections" 
                             onClick={handleCollectionsClose}
-                            className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 hover:opacity-80"
-                            style={{ color: BROWN }}
+                            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all duration-200 hover:scale-105 hover:shadow-md rounded-lg border-2"
+                            style={{ 
+                              color: BROWN,
+                              borderColor: `${BROWN}30`,
+                              backgroundColor: `${BROWN}05`
+                            }}
                           >
                             View All Collections
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                           </Link>
@@ -513,37 +517,37 @@ export default function Navbar({ cartCounts = 3 }) {
           </div>
 
           {/* CENTER: logo + tagline */}
-          <div className="flex flex-col items-center justify-center px-2 sm:px-4">
+          <div className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-4">
             <Link 
               href="/" 
-              className="transition-all duration-300 hover:scale-105 hover:opacity-90 p-2 rounded-lg hover:bg-gray-50/50"
+              className="transition-all duration-300 hover:scale-105 hover:opacity-90 p-2 sm:p-3 rounded-lg hover:bg-gray-50/50"
             >
               <Image
                 src={logo}
                 alt="The Glowry Studio Logo"
-                width={150}
-                height={30}
-                className="h-7 w-auto sm:h-9 sm:w-auto md:h-11 md:w-auto lg:h-13 lg:w-auto xl:h-16 xl:w-auto drop-shadow-sm"
+                width={160}
+                height={32}
+                className="h-8 w-auto sm:h-10 sm:w-auto md:h-12 md:w-auto lg:h-14 lg:w-auto xl:h-16 xl:w-auto drop-shadow-sm"
                 priority
               />
             </Link>
             <div
               className="mt-1.5 hidden sm:block text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] uppercase font-semibold tracking-wider opacity-90"
-              style={{ color: BROWN, letterSpacing: "0.4em" }}
+              style={{ color: BROWN, letterSpacing: "0.3em" }}
             >
               The Glowry Studio
             </div>
           </div>
 
           {/* RIGHT: icons */}
-          <div className="flex items-center justify-end gap-3 sm:gap-4 md:gap-6 lg:gap-7" style={{ color: BROWN }}>
+          <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-4 lg:gap-5" style={{ color: BROWN }}>
             {/* search trigger */}
             <button 
               aria-label="Open search" 
-              className="p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
+              className="p-1.5 sm:p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
               onClick={handleSearchToggle}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4 lg:w-5 lg:h-5">
                 <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M20 20l-3.2-3.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
@@ -553,36 +557,36 @@ export default function Navbar({ cartCounts = 3 }) {
               {isAuthenticated ? (
                 <button
                   aria-label="User menu"
-                  className="p-2 flex items-center gap-1 sm:gap-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
+                  className="p-1.5 sm:p-2 flex items-center gap-1 sm:gap-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
                   onClick={handleUserMenuToggle}
                 >
                   {user?.avatarUrl ? (
                     <Image
                       src={user.avatarUrl}
                       alt={user.name || "User"}
-                      width={20}
-                      height={20}
-                      className="rounded-full w-5 h-5 sm:w-6 sm:h-6"
+                      width={18}
+                      height={18}
+                      className="rounded-full w-4 h-4 sm:w-5 sm:h-5"
                     />
                   ) : (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4 lg:w-5 lg:h-5">
                       <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
                       <path d="M5 19c1.8-3 5-4 7-4s5.2 1 7 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   )}
-                  <span className="hidden md:block text-xs sm:text-sm font-medium transition-colors duration-200" style={{ color: BROWN }}>
+                  <span className="hidden lg:block text-xs sm:text-sm font-medium transition-colors duration-200" style={{ color: BROWN }}>
                     {user?.name || "User"}
                   </span>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="sm:w-3 sm:h-3">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" className="sm:w-2 sm:h-2">
                     <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
               ) : (
                 <Link 
                   href="/accounts/login" 
-                  className="p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
+                  className="p-1.5 sm:p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4 lg:w-5 lg:h-5">
                     <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
                     <path d="M5 19c1.8-3 5-4 7-4s5.2 1 7 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
@@ -645,14 +649,14 @@ export default function Navbar({ cartCounts = 3 }) {
             <Link 
               href="/wishlist"
               aria-label="Wishlist" 
-              className="relative p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
+              className="relative p-1.5 sm:p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4 lg:w-5 lg:h-5">
                 <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               {wishlistCount > 0 && (
                 <span
-                  className="absolute -right-1 -top-1 sm:-right-1.5 sm:-top-0.5 grid h-4 w-4 sm:h-[18px] sm:min-w-[18px] place-items-center rounded-full px-1 sm:px-[6px] text-[9px] sm:text-[10px] text-white font-medium"
+                  className="absolute -right-0.5 -top-0.5 sm:-right-1 sm:-top-0.5 grid h-3 w-3 sm:h-4 sm:min-w-4 place-items-center rounded-full px-0.5 sm:px-1 text-[8px] sm:text-[9px] text-white font-medium"
                   style={{ backgroundColor: '#ef4444' }}
                 >
                   {wishlistCount > 99 ? '99+' : wishlistCount}
@@ -663,16 +667,16 @@ export default function Navbar({ cartCounts = 3 }) {
             {/* cart */}
             <button 
               aria-label="Cart" 
-              className="relative p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
+              className="relative p-1.5 sm:p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md" 
               onClick={handleCartOpen}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4 lg:w-5 lg:h-5">
                 <path d="M6 7h14l-1.4 8.4a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L6 7Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                 <path d="M9 7a3 3 0 1 1 6 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
               {cartCount > 0 && (
                 <span
-                  className="absolute -right-1 -top-1 sm:-right-1.5 sm:-top-0.5 grid h-4 w-4 sm:h-[18px] sm:min-w-[18px] place-items-center rounded-full px-1 sm:px-[6px] text-[9px] sm:text-[10px] text-white font-medium"
+                  className="absolute -right-0.5 -top-0.5 sm:-right-1 sm:-top-0.5 grid h-3 w-3 sm:h-4 sm:min-w-4 place-items-center rounded-full px-0.5 sm:px-1 text-[8px] sm:text-[9px] text-white font-medium"
                   style={{ backgroundColor: BROWN }}
                 >
                   {cartCount > 99 ? '99+' : cartCount}
@@ -684,11 +688,11 @@ export default function Navbar({ cartCounts = 3 }) {
 
         {/* MOBILE DROPDOWN (slide-down) */}
         <div
-          className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out border-t`}
+          className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out border-t bg-gradient-to-b from-white to-gray-50/30`}
           style={{ maxHeight: mobileMenuHeight, borderColor: `${BROWN}22` }}
         >
-          <nav className="pb-4 pt-2">
-            <ul className="space-y-1 text-sm sm:text-[15px] font-medium">
+          <nav className="pb-4 pt-3">
+            <ul className="space-y-1 text-sm sm:text-[15px] font-medium px-2">
               <li>
                 <Link 
                   href="/" 
@@ -701,22 +705,22 @@ export default function Navbar({ cartCounts = 3 }) {
               </li>
               <li>
                 <details className="group">
-                  <summary className="list-none flex items-center justify-between py-2 px-2 cursor-pointer transition-colors duration-200 hover:bg-gray-50 rounded-md" style={{ color: BROWN }}>
+                  <summary className="list-none flex items-center justify-between py-2.5 px-3 cursor-pointer transition-all duration-200 hover:bg-gray-50 hover:scale-[1.02] rounded-lg border border-transparent hover:border-gray-200 font-medium" style={{ color: BROWN }}>
                     <span>Collections</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="transition-transform group-open:rotate-180">
                       <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </summary>
-                  <div className="pl-2 pb-2 grid grid-cols-1 gap-1">
+                  <div className="pl-2 pb-2 grid grid-cols-1 gap-2">
                     {processedCategories.map((c) => (
                       <Link
                         key={c._id}
                         href={c.href}
-                        className="flex items-center gap-3 py-2 px-2 text-xs sm:text-sm transition-colors duration-200 hover:bg-gray-50 rounded-md"
+                        className="flex items-center gap-3 py-2.5 px-3 text-xs sm:text-sm transition-all duration-200 hover:bg-gray-50 hover:scale-[1.02] rounded-lg border border-transparent hover:border-gray-200"
                         style={{ color: BROWN }}
                         onClick={handleMobileMenuClose}
                       >
-                        <div className="h-8 w-8 sm:h-10 sm:w-10 overflow-hidden rounded border flex-shrink-0" style={{ borderColor: `${BROWN}22` }}>
+                        <div className="h-8 w-8 sm:h-10 sm:w-10 overflow-hidden rounded-lg border-2 flex-shrink-0 shadow-sm" style={{ borderColor: `${BROWN}20` }}>
                           <Image
                             src={c.img}
                             alt={c.name || c.slug}
@@ -725,7 +729,7 @@ export default function Navbar({ cartCounts = 3 }) {
                             className="h-full w-full object-cover"
                           />
                         </div>
-                        <span className="truncate">{c.name || c.slug}</span>
+                        <span className="truncate font-medium">{c.name || c.slug}</span>
                       </Link>
                     ))}
                     {categoriesLoading && (
@@ -741,6 +745,27 @@ export default function Navbar({ cartCounts = 3 }) {
                     {categoriesError && (
                       <div className="py-2 text-[13px]" style={{ color: '#ef4444' }}>
                         Failed to load collections
+                      </div>
+                    )}
+                    
+                    {/* View All Collections button for mobile */}
+                    {!categoriesLoading && processedCategories.length > 0 && (
+                      <div className="pt-2 border-t border-gray-200 mt-2">
+                        <Link
+                          href="/collections"
+                          className="flex items-center justify-center gap-2 py-2.5 px-3 text-xs sm:text-sm font-semibold transition-all duration-200 hover:scale-[1.02] rounded-lg border-2 text-center"
+                          style={{ 
+                            color: BROWN,
+                            borderColor: `${BROWN}30`,
+                            backgroundColor: `${BROWN}05`
+                          }}
+                          onClick={handleMobileMenuClose}
+                        >
+                          View All Collections
+                          <svg className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
                       </div>
                     )}
                   </div>
@@ -767,54 +792,62 @@ export default function Navbar({ cartCounts = 3 }) {
                 </Link>
               </li>
               {/* Mobile auth section */}
-              <li className="border-t pt-2 mt-2" style={{ borderColor: `${BROWN}22` }}>
+              <li className="border-t pt-3 mt-3 bg-gradient-to-r from-gray-50/50 to-transparent rounded-lg mx-2" style={{ borderColor: `${BROWN}22` }}>
                 {isAuthenticated ? (
-                  <div>
-                    <div className="px-2 py-2">
-                      <p className="text-sm font-medium" style={{ color: BROWN }}>
+                  <div className="px-2">
+                    <div className="px-2 py-3 bg-white rounded-lg border shadow-sm" style={{ borderColor: `${BROWN}15` }}>
+                      <p className="text-sm font-semibold" style={{ color: BROWN }}>
                         {user?.name || "User"}
                       </p>
-                      <p className="text-xs opacity-70" style={{ color: BROWN }}>
+                      <p className="text-xs opacity-70 mt-1" style={{ color: BROWN }}>
                         {user?.email}
                       </p>
                     </div>
-                    <Link
-                      href="/dashboard"
-                      className="block py-2 px-2 text-xs sm:text-sm transition-colors duration-200 hover:bg-gray-50 rounded-md"
-                      style={{ color: BROWN }}
-                      onClick={handleMobileMenuClose}
-                    >
-                      Dashboard
-                    </Link>
-                    <Link
-                      href="/orders"
-                      className="block py-2 px-2 text-xs sm:text-sm transition-colors duration-200 hover:bg-gray-50 rounded-md"
-                      style={{ color: BROWN }}
-                      onClick={handleMobileMenuClose}
-                    >
-                      Orders
-                    </Link>
-                    <button
-                      onClick={() => {
-                        handleLogout();
-                        handleMobileMenuClose();
-                      }}
-                      disabled={isLoggingOut}
-                      className="block w-full text-left py-2 px-2 text-xs sm:text-sm transition-colors duration-200 hover:bg-gray-50 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{ color: BROWN }}
-                    >
-                      {isLoggingOut ? 'Logging out...' : 'Logout'}
-                    </button>
+                    <div className="mt-2 space-y-1">
+                      <Link
+                        href="/dashboard"
+                        className="block py-2.5 px-3 text-xs sm:text-sm transition-all duration-200 hover:bg-gray-50 hover:scale-[1.02] rounded-lg border border-transparent hover:border-gray-200 font-medium"
+                        style={{ color: BROWN }}
+                        onClick={handleMobileMenuClose}
+                      >
+                        Dashboard
+                      </Link>
+                      <Link
+                        href="/orders"
+                        className="block py-2.5 px-3 text-xs sm:text-sm transition-all duration-200 hover:bg-gray-50 hover:scale-[1.02] rounded-lg border border-transparent hover:border-gray-200 font-medium"
+                        style={{ color: BROWN }}
+                        onClick={handleMobileMenuClose}
+                      >
+                        Orders
+                      </Link>
+                      <button
+                        onClick={() => {
+                          handleLogout();
+                          handleMobileMenuClose();
+                        }}
+                        disabled={isLoggingOut}
+                        className="block w-full text-left py-2.5 px-3 text-xs sm:text-sm transition-all duration-200 hover:bg-red-50 hover:scale-[1.02] rounded-lg border border-transparent hover:border-red-200 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{ color: isLoggingOut ? '#6b7280' : '#dc2626' }}
+                      >
+                        {isLoggingOut ? 'Logging out...' : 'Logout'}
+                      </button>
+                    </div>
                   </div>
                 ) : (
-                  <Link
-                    href="/accounts/login"
-                    className="block py-2 px-2 text-sm sm:text-[15px] font-medium transition-colors duration-200 hover:bg-gray-50 rounded-md"
-                    style={{ color: BROWN }}
-                    onClick={handleMobileMenuClose}
-                  >
-                    Login / Sign Up
-                  </Link>
+                  <div className="px-2">
+                    <Link
+                      href="/accounts/login"
+                      className="block py-3 px-4 text-sm sm:text-[15px] font-semibold transition-all duration-200 hover:scale-[1.02] rounded-lg border-2 text-center"
+                      style={{ 
+                        color: BROWN,
+                        borderColor: `${BROWN}30`,
+                        backgroundColor: `${BROWN}05`
+                      }}
+                      onClick={handleMobileMenuClose}
+                    >
+                      Login / Sign Up
+                    </Link>
+                  </div>
                 )}
               </li>
             </ul>
@@ -832,28 +865,29 @@ export default function Navbar({ cartCounts = 3 }) {
               className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8"
             >
               <div
-                className="mt-2 rounded-lg border shadow-xl overflow-hidden"
-                style={{ background: "#FFFFFF", borderColor: `${BROWN}22` }}
+                className="mt-2 rounded-xl border shadow-2xl overflow-hidden bg-gradient-to-br from-white to-gray-50/30"
+                style={{ borderColor: `${BROWN}22` }}
               >
                 {/* input row */}
-                <div className="flex items-center gap-2 sm:gap-3 px-3 py-3">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 flex-shrink-0">
+                <div className="flex items-center gap-2 sm:gap-3 px-4 py-4 bg-white/80 backdrop-blur-sm">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5 flex-shrink-0" style={{ color: BROWN }}>
                     <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
                     <path d="M20 20l-3.2-3.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                   <input
                     autoFocus
                     type="text"
-                    placeholder="Search for products"
+                    placeholder="Search for products..."
                     value={query}
                     onChange={handleSearchQueryChange}
-                    className="w-full bg-transparent text-sm sm:text-[15px] outline-none placeholder:opacity-60"
+                    className="w-full bg-transparent text-sm sm:text-[15px] outline-none placeholder:opacity-60 font-medium"
                     style={{ color: BROWN }}
                   />
                   <button
                     aria-label="Close search"
                     onClick={handleSearchClose}
-                    className="p-1 sm:p-2 transition-colors duration-200 hover:bg-gray-50 rounded-md"
+                    className="p-2 transition-all duration-200 hover:bg-gray-100 hover:scale-110 rounded-lg"
+                    style={{ color: BROWN }}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="sm:w-5 sm:h-5">
                       <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -863,23 +897,35 @@ export default function Navbar({ cartCounts = 3 }) {
 
                 {/* results */}
                 {query.trim().length > 0 && (
-                  <div className="border-t" style={{ borderColor: `${BROWN}11` }}>
+                  <div className="border-t bg-gradient-to-b from-gray-50/50 to-white" style={{ borderColor: `${BROWN}11` }}>
                     {searchLoading && (
-                      <div className="p-3 sm:p-4 text-sm" style={{ color: BROWN }}>Searching…</div>
+                      <div className="p-4 text-center">
+                        <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: BROWN }}>
+                          <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          Searching…
+                        </div>
+                      </div>
                     )}
                     {!searchLoading && Array.isArray(searchResults) && searchResults.length === 0 && (
-                      <div className="p-3 sm:p-4 text-sm" style={{ color: BROWN }}>No results</div>
+                      <div className="p-4 text-center">
+                        <div className="text-sm font-medium opacity-70" style={{ color: BROWN }}>
+                          No results found for "{query}"
+                        </div>
+                      </div>
                     )}
                     {!searchLoading && memoizedSearchResults.length > 0 && (
-                      <ul className="max-h-[50vh] sm:max-h-[60vh] overflow-auto divide-y" style={{ borderColor: `${BROWN}11` }}>
+                      <ul className="max-h-[50vh] sm:max-h-[60vh] overflow-auto">
                         {memoizedSearchResults.map((p) => (
                           <li key={p._id}>
                             <Link
                               href={p.href}
-                              className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 transition-colors duration-200 hover:bg-gray-50"
+                              className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 transition-all duration-200 hover:bg-gray-50 hover:scale-[1.01] border-b border-gray-100"
                               onClick={handleSearchClose}
                             >
-                              <div className="h-12 w-10 sm:h-14 sm:w-12 overflow-hidden rounded border flex-shrink-0" style={{ borderColor: `${BROWN}22` }}>
+                              <div className="h-12 w-10 sm:h-14 sm:w-12 overflow-hidden rounded-lg border-2 flex-shrink-0 shadow-sm" style={{ borderColor: `${BROWN}20` }}>
                                 <Image
                                   src={p.img}
                                   alt={p.title}
@@ -888,7 +934,7 @@ export default function Navbar({ cartCounts = 3 }) {
                                   className="h-full w-full object-cover"
                                 />
                               </div>
-                              <span className="text-sm sm:text-[15px] truncate" style={{ color: BROWN }}>{p.title}</span>
+                              <span className="text-sm sm:text-[15px] font-medium truncate" style={{ color: BROWN }}>{p.title}</span>
                             </Link>
                           </li>
                         ))}
