@@ -4,17 +4,25 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import { handleOAuthCallback, createMockUserSession } from './oauth-handler';
 import { getEmailOtpSession } from './email-session-handler';
 
-const API_URL = 'http://localhost:4000';
+// Dynamic API URL based on environment
+const getApiUrl = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://theglowrystudiofrontendadmin.onrender.com';
+  }
+  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+};
+
+const API_URL = getApiUrl();
 
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
   ],
   events: {
@@ -143,6 +151,8 @@ export const authOptions = {
     strategy: 'jwt',
   },
   debug: process.env.NODE_ENV === 'development',
+  // Add NEXTAUTH_URL to handle redirect URIs properly
+  ...(process.env.NEXTAUTH_URL && { url: process.env.NEXTAUTH_URL }),
 };
 
 export default NextAuth(authOptions);

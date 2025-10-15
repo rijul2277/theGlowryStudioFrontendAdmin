@@ -26,7 +26,7 @@ export const CLEAR_ORDER_ERRORS = 'CLEAR_ORDER_ERRORS';
 export const RESET_ORDER_STATE = 'RESET_ORDER_STATE';
 
 // API Base URL
-const API_BASE_URL = 'http://localhost:4000/api/v1';
+const API_BASE_URL = 'https://theglowrystudiofrontendadmin.onrender.com/api/v1';
 
 // Note: Authentication is handled automatically by the API interceptor
 // which adds the accessToken from cookies to all requests
